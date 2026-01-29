@@ -156,10 +156,11 @@ String pass = prop.getProperty("db.password");
         }
 
         // Insert result into DB
-        String insert_query = "INSERT INTO results(username, score) VALUES (?, ?)";
+        String insert_query = "INSERT INTO results(username, score, max_score) VALUES (?, ?, ?)";
         PreparedStatement insert = con.prepareStatement(insert_query);
         insert.setString(1, name);
         insert.setInt(2, score);
+        insert.setInt(3, num_questions);
         insert.executeUpdate();
 
         con.close();
