@@ -38,5 +38,10 @@ The system supports **Teacher and Student roles**, allowing teachers to add ques
 
 ---
 
-## 🗂 Project Structure
+## 🗄 Database Structure
 
+### Questions Table
+![Questions Table](screenshots/db_questions_table.jpeg)
+
+### Results Table
+![Results Table](screenshots/db_results_table.jpeg)
