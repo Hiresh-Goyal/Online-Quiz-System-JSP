@@ -1,5 +1,17 @@
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.util.Properties, java.io.InputStream" %>
+
+<%
+Properties prop = new Properties();
+InputStream in = application.getResourceAsStream("/WEB-INF/db.properties");
+prop.load(in);
+
+String url = prop.getProperty("db.url");
+String username = prop.getProperty("db.username");
+String pass = prop.getProperty("db.password");
+%>
+
 
 <!DOCTYPE html>
 <html>
@@ -104,13 +116,9 @@
         String option_4 = request.getParameter("option_4");
         int correct_op = Integer.parseInt(request.getParameter("correct_op"));
 
-        String url = "jdbc:mysql://localhost:3306/quizdb";
-        String dbUser = "root";
-        String dbPass = "Hiresh@2007";
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, dbUser, dbPass);
+            Connection con = DriverManager.getConnection(url, username, pass);
 
             String sql = "INSERT INTO questions(question, option1, option2, option3, option4, correct_option) VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);

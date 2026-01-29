@@ -1,5 +1,16 @@
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.util.Properties, java.io.InputStream" %>
+
+<%
+Properties prop = new Properties();
+InputStream in = application.getResourceAsStream("/WEB-INF/db.properties");
+prop.load(in);
+
+String url = prop.getProperty("db.url");
+String username = prop.getProperty("db.username");
+String pass = prop.getProperty("db.password");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -84,16 +95,13 @@
 <%
     String name = request.getParameter("username");
 
-    String url = "jdbc:mysql://localhost:3306/quizdb";
-    String dbUser = "root";
-    String dbPass = "Hiresh@2007";
 
     int score = 0;
     int num_questions = 0;
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection(url, dbUser, dbPass);
+        Connection con = DriverManager.getConnection(url, username, pass);
         Statement st = con.createStatement(
         	    ResultSet.TYPE_SCROLL_INSENSITIVE,
         	    ResultSet.CONCUR_READ_ONLY
