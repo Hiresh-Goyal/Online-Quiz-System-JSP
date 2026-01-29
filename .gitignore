@@ -39,3 +39,7 @@ Thumbs.db
 
 # Environment
 .env
+
+# Database credentials
+WebContent/WEB-INF/db.properties
+
