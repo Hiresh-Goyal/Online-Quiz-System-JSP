@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .container {
+            width: 35%;
+            margin: 120px auto;
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .add {
+            background: #6f42c1;
+            color: white;
+        }
+
+        .quiz {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Teacher Dashboard</h2>
+
+    <form action="AddQuestion.jsp">
+        <button class="btn add">Add Question</button>
+    </form>
+
+    <form action="quiz.jsp">
+        <button class="btn quiz">Try the Quiz</button>
+    </form>
+</div>
+
+</body>
+</html>
