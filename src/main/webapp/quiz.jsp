@@ -41,6 +41,7 @@ String pass = prop.getProperty("db.password");
         }
 
         .option {
+        	display: block;		
             margin: 6px 0;
             padding: 8px;
             background: #f1f1f1;
